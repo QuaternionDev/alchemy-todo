@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(AlchemyToDo());
+  runApp(TodoApp());
 }
 
-class AlchemyToDo extends StatelessWidget {
+class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Alchemy To-Do',
+      title: 'Todo App',
       home: TodoScreen(),
     );
   }
@@ -27,6 +27,22 @@ class _TodoScreenState extends State<TodoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Todo List'),
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: Text('Settings'),
+                  value: 'settings',
+                ),
+                PopupMenuItem(
+                  child: Text('About'),
+                  value: 'about',
+                ),
+              ];
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: todos.length,
@@ -66,7 +82,7 @@ class _TodoScreenState extends State<TodoScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Create Task'),
+          title: Text('Add Task'),
           content: TextField(
             controller: controller,
             autofocus: true,
