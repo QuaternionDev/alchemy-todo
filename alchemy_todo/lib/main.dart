@@ -26,13 +26,27 @@ class _TodoScreenState extends State<TodoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alchemy To-Do'),
+        title: Text('Todo List'),
       ),
       body: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(todos[index]),
+            title: Row(
+              children: [
+                IconButton(
+                  icon: Icon(Icons.check),
+                  onPressed: () {
+                    setState(() {
+                      todos.removeAt(index);
+                    });
+                  },
+                ),
+                Expanded(
+                  child: Text(todos[index]),
+                ),
+              ],
+            ),
           );
         },
       ),
