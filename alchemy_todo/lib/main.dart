@@ -8,7 +8,7 @@ class AlchemyToDo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo App',
+      title: 'Alchemy To-Do',
       home: TodoScreen(),
     );
   }
@@ -26,7 +26,7 @@ class _TodoScreenState extends State<TodoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo List'),
+        title: Text('Alchemy To-Do'),
       ),
       body: ListView.builder(
         itemCount: todos.length,
@@ -52,7 +52,7 @@ class _TodoScreenState extends State<TodoScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Add Task'),
+          title: Text('Create Task'),
           content: TextField(
             controller: controller,
             autofocus: true,
