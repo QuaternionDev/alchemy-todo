@@ -12,6 +12,16 @@ class TodoApp extends StatelessWidget {
       home: TodoScreen(),
     );
   }
+
+  void _showAboutPage(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => AboutPage(),
+    ),
+  );
+ }
+
 }
 
 class TodoScreen extends StatefulWidget {
